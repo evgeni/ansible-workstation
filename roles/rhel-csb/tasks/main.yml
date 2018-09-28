@@ -1,0 +1,28 @@
+---
+- name: add rhel-csb repo
+  yum_repository:
+    name: rhel7-csb
+    file: rhel7-csb-stage
+    description: RHEL7 CSB packages
+    baseurl: http://hdn.corp.redhat.com/rhel7-csb-stage
+    enabled: 1
+    gpgcheck: 1
+    gpgkey: http://hdn.corp.redhat.com/rhel7-csb-stage/RPM-GPG-KEY-helpdesk
+    priority: 2
+    exclude:
+      - nss-pem
+      - linux-firmware
+      - spotify-openssl
+      - google-chrome-stable
+    state: present
+- name: install csb specific packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - redhat-internal-NetworkManager-openvpn-profiles
+    - redhat-internal-cert-install
+    - redhat-internal-ddns-client
+    - redhat-internal-linfo
+    - redhat-internal-openvpn-profiles
+    - SpiderOakGroups

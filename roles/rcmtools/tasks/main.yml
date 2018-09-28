@@ -1,0 +1,18 @@
+---
+- name: add rcmtools repo
+  yum_repository:
+    name: rcm-tools-fedora-rpms
+    description: RCM Tools for Fedora $releasever (RPMs)
+    baseurl: http://download.devel.redhat.com/rel-eng/RCMTOOLS/latest-RCMTOOLS-2-F-$releasever/compose/Everything/$basearch/os/
+    enabled: 1
+    gpgcheck: 1
+    gpgkey: http://download.devel.redhat.com/rel-eng/RCMTOOLS/RPM-GPG-KEY-rcminternal
+    state: present
+- name: install rcm tools
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - brewkoji
+    - rhpkg
+    - rpmdiff

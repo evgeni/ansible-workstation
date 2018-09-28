@@ -1,0 +1,23 @@
+- hosts: all
+  roles:
+    - neomutt
+    - chrome
+    - role: rhel-csb
+      when: ansible_distribution == 'Fedora'
+    - role: rcmtools
+      when: ansible_distribution == 'Fedora'
+    - role: redhat-sssd
+      when: ansible_distribution == 'Fedora'
+    - role: flatpak
+  tasks:
+    - name: install basic packages
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - ansible
+        - vim
+        - zsh
+        - vcsh
+        - myrepos
+        - lm_sensors

@@ -1,0 +1,16 @@
+---
+- name: install sssd
+  package:
+    name: sssd
+    state: present
+- name: configure sssd
+  copy:
+    src: files/sssd.conf
+    dest: /etc/sssd/sssd.conf
+    mode: '0700'
+  notify:
+    - restart sssd
+- name: start sssd
+  service:
+    name: sssd
+    state: started

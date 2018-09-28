@@ -1,0 +1,21 @@
+---
+- name: add neomutt copr repo
+  yum_repository:
+    name: flatcap-neomutt
+    file: _copr_flatcap-neomutt
+    description: Copr repo for neomutt owned by flatcap
+    baseurl: https://copr-be.cloud.fedoraproject.org/results/flatcap/neomutt/fedora-$releasever-$basearch/
+    #type: rpm-md
+    skip_if_unavailable: True
+    gpgcheck: True
+    gpgkey: https://copr-be.cloud.fedoraproject.org/results/flatcap/neomutt/pubkey.gpg
+    repo_gpgcheck: 0
+    enabled: 1
+    #enabled_metadata: 1
+    state: present
+  when:
+    - ansible_distribution == 'Fedora'
+- name: install neomutt
+  package:
+    name: neomutt
+    state: present
