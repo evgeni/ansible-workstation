@@ -9,6 +9,7 @@
     - role: redhat-sssd
       when: ansible_distribution == 'Fedora'
     - role: flatpak
+    - role: vcsh
   tasks:
     - name: install basic packages
       package:
@@ -18,6 +19,5 @@
         - ansible
         - vim
         - zsh
-        - vcsh
         - myrepos
         - lm_sensors

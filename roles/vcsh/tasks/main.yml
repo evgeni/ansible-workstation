@@ -1,0 +1,12 @@
+---
+- name: install vcsh
+  package:
+    name: vcsh
+    state: present
+
+- name: clone vcsh repos
+  command: vcsh clone {{ item['repo'] }} {{ item['name'] }}
+  args:
+    creates: "{{ ansible_user_dir }}/.config/vcsh/repo.d/{{ item['name'] }}.git"
+  with_items:
+    - "{{ vcsh_repos }}"

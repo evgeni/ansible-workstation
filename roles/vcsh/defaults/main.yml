@@ -1,0 +1,14 @@
+---
+vcsh_repos:
+  - name: git
+    repo: git@github.com:evgeni/vcsh_git.git
+  - name: mutt
+    repo: git@github.com:evgeni/vcsh_mutt.git
+  - name: pimutils
+    repo: git@github.com:evgeni/vcsh_pimutils.git
+  - name: ssh
+    repo: git@github.com:evgeni/vcsh_ssh.git
+  - name: vim
+    repo: git@github.com:evgeni/vcsh_vim.git
+  - name: zsh
+    repo: git@github.com:evgeni/vcsh_zsh.git
