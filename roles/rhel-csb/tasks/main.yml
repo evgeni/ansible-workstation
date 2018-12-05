@@ -17,12 +17,11 @@
     state: present
 - name: install csb specific packages
   package:
-    name: "{{ item }}"
+    name:
+      - redhat-internal-NetworkManager-openvpn-profiles
+      - redhat-internal-cert-install
+      - redhat-internal-ddns-client
+      - redhat-internal-linfo
+      - redhat-internal-openvpn-profiles
+      - SpiderOakGroups
     state: present
-  with_items:
-    - redhat-internal-NetworkManager-openvpn-profiles
-    - redhat-internal-cert-install
-    - redhat-internal-ddns-client
-    - redhat-internal-linfo
-    - redhat-internal-openvpn-profiles
-    - SpiderOakGroups

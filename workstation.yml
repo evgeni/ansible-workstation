@@ -13,20 +13,19 @@
   tasks:
     - name: install basic packages
       package:
-        name: "{{ item }}"
+        name:
+          - ansible
+          - vim
+          - zsh
+          - myrepos
+          - lm_sensors
+          - rubygem-bundler
+          - ruby-devel
+          - make
+          - gcc
+          - gcc-c++
+          - zlib-devel
+          - mosh
+          - cmake
+          - python-devel
         state: present
-      with_items:
-        - ansible
-        - vim
-        - zsh
-        - myrepos
-        - lm_sensors
-        - rubygem-bundler
-        - ruby-devel
-        - make
-        - gcc
-        - gcc-c++
-        - zlib-devel
-        - mosh
-        - cmake
-        - python-devel
