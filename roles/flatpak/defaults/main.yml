@@ -2,3 +2,4 @@
 flatpak_install:
   - org.signal.Signal
   - org.telegram.desktop
+  - com.spotify.Client
