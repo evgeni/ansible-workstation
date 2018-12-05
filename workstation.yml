@@ -21,3 +21,12 @@
         - zsh
         - myrepos
         - lm_sensors
+        - rubygem-bundler
+        - ruby-devel
+        - make
+        - gcc
+        - gcc-c++
+        - zlib-devel
+        - mosh
+        - cmake
+        - python-devel
